@@ -1,6 +1,7 @@
 import { useLayoutEffect, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
+import heroImage from "../assets/hero.png";
 
 const splitText = (text, className = "") =>
   text.split("").map((char, index) => {
@@ -226,7 +227,12 @@ const Hero = ({ data }) => {
 
       <div className="hero__visual reveal" style={{ "--delay": "0.2s" }}>
         <div className="hero__orb">
-          <div className="hero__figure" />
+          <img
+            className="hero__figure hero__figure--image"
+            src={heroImage}
+            alt="Darshan Desale"
+            loading="lazy"
+          />
         </div>
         <div className="hero__floating hero__floating--top">
           <p className="floating__title">{floatingTop.title}</p>
