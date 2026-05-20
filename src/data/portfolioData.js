@@ -131,9 +131,9 @@ export const projects = [
 
   // accent: "#8B5CF6",
 
-  liveLink: "https://your-live-link.com/",
+  liveLink: "",
 
-  githubLink: "https://github.com/yourusername/ecommerce-application.git",
+  githubLink: "https://github.com/Darshannn007/E-commerce-Application.git",
 }
 ];
 
