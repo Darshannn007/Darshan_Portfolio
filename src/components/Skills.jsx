@@ -36,8 +36,6 @@ const Skills = ({ content, skills }) => {
     })
     .filter(Boolean);
 
-  const totalSkills = skills.length;
-
   return (
     <section id="skills" className="section skills">
       <div className="section__header reveal" style={{ "--delay": "0.1s" }}>
@@ -51,7 +49,6 @@ const Skills = ({ content, skills }) => {
         <div className="skills__feature reveal" style={{ "--delay": "0.15s" }}>
           <div className="skills__feature-top">
             <span className="skills__feature-label">Stack Snapshot</span>
-            <span className="skills__feature-total">{totalSkills} Skills</span>
           </div>
           <h3 className="skills__feature-title">Full Stack Focus</h3>
           <p className="skills__feature-text">
@@ -80,15 +77,14 @@ const Skills = ({ content, skills }) => {
               style={{ "--delay": `${0.2 + index * 0.1}s` }}
             >
               <div className="skills__panel-head">
-                <div>
-                  <p className="skills__panel-title">{group.title}</p>
+                <div className="skills__panel-text">
+                  <div className="skills__panel-title-row">
+                    <p className="skills__panel-title">{group.title}</p>
+                    <span className="skills__panel-index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
                   <p className="skills__panel-subtitle">{group.subtitle}</p>
-                </div>
-                <div className="skills__panel-meta">
-                  <span className="skills__panel-count">{group.items.length} items</span>
-                  <span className="skills__panel-index">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
                 </div>
               </div>
               <div className="skills__chips">

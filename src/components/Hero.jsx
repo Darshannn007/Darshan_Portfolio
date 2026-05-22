@@ -164,6 +164,7 @@ const Hero = ({ data }) => {
     chips,
     floatingTop,
     floatingBottom,
+    floatingOpportunity,
     socialLinks,
     scrollHint,
   } = data;
@@ -217,11 +218,18 @@ const Hero = ({ data }) => {
           </a>
         </div>
         <div className="hero__meta">
-          {chips.map((chip) => (
-            <span key={chip} className="chip">
-              {chip}
-            </span>
-          ))}
+          {chips.map((chip) => {
+            const isMobileOnly = chip === "Open to Opportunities";
+
+            return (
+              <span
+                key={chip}
+                className={`chip${isMobileOnly ? " chip--mobile-only" : ""}`}
+              >
+                {chip}
+              </span>
+            );
+          })}
         </div>
       </div>
 
@@ -241,6 +249,10 @@ const Hero = ({ data }) => {
         <div className="hero__floating hero__floating--bottom">
           <p className="floating__title">{floatingBottom.title}</p>
           <p className="floating__value">{floatingBottom.value}</p>
+        </div>
+        <div className="hero__floating hero__floating--opportunity">
+          <p className="floating__title">{floatingOpportunity.title}</p>
+          <p className="floating__value">{floatingOpportunity.value}</p>
         </div>
         <div className="social-rail">
           {socialLinks.map((link) => {

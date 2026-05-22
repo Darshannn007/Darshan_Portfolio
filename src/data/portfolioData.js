@@ -17,9 +17,10 @@ export const hero = {
     "I build exceptional digital experiences that feel fast, cinematic, and unforgettable.",
   primaryCta: { label: "Explore My Work", href: "#projects" },
   secondaryCta: { label: "Download CV", href: "/certifications/DarshanDesale.pdf" },
-  chips: ["Full Stack", "React + Spring Boot", "Open for Freelance"],
+  chips: ["Full Stack", "React + Spring Boot", "Open for Freelance", "Open to Opportunities"],
   floatingTop: { title: "Next Project", value: "AI Agent's" },
   floatingBottom: { title: "Currently", value: "completed The full stack hospital management system" },
+  floatingOpportunity: { title: "", value: "" },
   socialLinks: [
     { label: "in", href: "https://www.linkedin.com/in/darshandesale" },
     { label: "gh", href: "https://github.com/Darshannn007" },
