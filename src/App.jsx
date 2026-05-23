@@ -26,6 +26,7 @@ import {
   contactSection,
   footerText,
 } from "./data/portfolioData";
+import { px } from "framer-motion";
 
 const App = () => {
   useEffect(() => {
@@ -95,11 +96,14 @@ const App = () => {
       }
     };
 
-    setSpotlight(nextX, nextY);
-
-    window.addEventListener("mousemove", handleMove, { passive: true });
-    window.addEventListener("mouseenter", handleMove);
-    window.addEventListener("mouseleave", handleLeave);
+    // Disable cursor tracking on mobile (screens <= 768px)
+    const isMobile = window.innerWidth <= 10000;
+    if (!isMobile) {
+      setSpotlight(nextX, nextY);
+      window.addEventListener("mousemove", handleMove, { passive: false });
+      window.addEventListener("mouseenter", handleMove);
+      window.addEventListener("mouseleave", handleLeave);
+    }
 
     return () => {
       if (observer) {

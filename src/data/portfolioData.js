@@ -30,7 +30,7 @@ export const hero = {
 };
 
 export const stats = [
-  { value: "1+", label: "Years Experience" },
+  { value: "3+", label: "Years of academic Experience" },
   { value: "2+", label: "Projects Completed" },
   { value: "15+", label: "Core Technologies" },
 ];
@@ -148,7 +148,6 @@ export const skillsSection = {
 export const skills = [
   { name: "React.js", type: "Frontend" },
   { name: "JavaScript", type: "Frontend" },
-  { name: "TypeScript", type: "Frontend" },
   { name: "HTML5", type: "Frontend" },
   { name: "CSS3", type: "Frontend" },
   { name: "Tailwind CSS", type: "Frontend" },
