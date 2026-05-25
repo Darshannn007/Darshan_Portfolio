@@ -26,7 +26,6 @@ import {
   contactSection,
   footerText,
 } from "./data/portfolioData";
-import { px } from "framer-motion";
 
 const App = () => {
   useEffect(() => {
@@ -96,13 +95,19 @@ const App = () => {
       }
     };
 
-    // Disable cursor tracking on mobile (screens <= 768px)
-    const isMobile = window.innerWidth <= 10000;
-    if (!isMobile) {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
+    const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
+    const enableSpotlight = isFinePointer && !isSmallScreen && !prefersReducedMotion;
+
+    if (enableSpotlight) {
       setSpotlight(nextX, nextY);
-      window.addEventListener("mousemove", handleMove, { passive: false });
-      window.addEventListener("mouseenter", handleMove);
+      window.addEventListener("mousemove", handleMove, { passive: true });
       window.addEventListener("mouseleave", handleLeave);
+    } else if (root) {
+      root.style.setProperty("--cursor-opacity", "0");
     }
 
     return () => {
@@ -113,7 +118,6 @@ const App = () => {
         window.cancelAnimationFrame(rafId);
       }
       window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("mouseenter", handleMove);
       window.removeEventListener("mouseleave", handleLeave);
     };
   }, []);
@@ -121,7 +125,10 @@ const App = () => {
   return (
     <div className="app">
       <div className="noise" />
-      <div className="cursor-spotlight" />
+      <div className="cursor-spotlight" aria-hidden="true">
+        <div className="cursor-spotlight__blob cursor-spotlight__blob--outer" />
+        <div className="cursor-spotlight__blob cursor-spotlight__blob--inner" />
+      </div>
       <Navbar links={navLinks} cta={navCta} />
       <main>
         <Hero data={hero} />

@@ -37,7 +37,7 @@ export const stats = [
 
 export const about = {
   eyebrow: "About Me",
-  title: "Full Stack Developer Crafting immersive web experiences with REACT & Spring-Boot",
+  title: "Full Stack Java Developer Crafting immersive web experiences with REACT & Spring-Boot",
   subtitle:
     "My focus is blending motion design with high-performance engineering to ship products that feel futuristic yet intuitive.",
   cta: { label: "More About Me", href: "#contact" },
@@ -161,6 +161,7 @@ export const skills = [
   { name: "JWT Authentication", type: "Backend" },
   { name: "Hibernate / JPA", type: "Backend" },
   { name: "MySQL", type: "Databases" },
+  { name: "SQL", type: "Databases" },
   { name: "DBMS", type: "Core CS" },
   { name: "Operating Systems", type: "Core CS" },
   { name: "Computer Networks", type: "Core CS" },

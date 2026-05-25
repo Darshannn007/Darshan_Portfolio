@@ -179,19 +179,24 @@ const Hero = ({ data }) => {
   useLayoutEffect(() => {
     if (!headingRef.current) return;
 
-    const letters = headingRef.current.querySelectorAll(".hero-letter");
+    const ctx = gsap.context(() => {
+      const letters = headingRef.current.querySelectorAll(".hero-letter");
 
-    gsap.set(letters, { y: 28, opacity: 0, filter: "blur(10px)" });
+      // Avoid animating blur filters (expensive). Stick to transform + opacity.
+      gsap.set(letters, { y: 28, opacity: 0 });
 
-    gsap.to(letters, {
-      y: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      duration: 1.1,
-      ease: "expo.out",
-      stagger: 0.035,
-      delay: 0.05,
-    });
+      gsap.to(letters, {
+        y: 0,
+        opacity: 1,
+        duration: 1.0,
+        ease: "expo.out",
+        stagger: 0.03,
+        delay: 0.05,
+        force3D: true,
+      });
+    }, headingRef);
+
+    return () => ctx.revert();
   }, [firstName, lastName]);
 
   return (
