@@ -255,10 +255,10 @@ const Hero = ({ data }) => {
           <p className="floating__title">{floatingBottom.title}</p>
           <p className="floating__value">{floatingBottom.value}</p>
         </div>
-        <div className="hero__floating hero__floating--opportunity">
+        {/* <div className="hero__floating hero__floating--opportunity">
           <p className="floating__title">{floatingOpportunity.title}</p>
           <p className="floating__value">{floatingOpportunity.value}</p>
-        </div>
+        </div> */}
         <div className="social-rail">
           {socialLinks.map((link) => {
             const meta = getSocialMeta(link.href);
