@@ -273,7 +273,7 @@
 	border-radius: 999px;
 	color: var(--muted);
 	font-size: 0.75rem;
-	transition: color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+	transition: color 0.3s ease, transform 0.3s ease, 0.3s ease;
 }
 
 @media (min-width: 768px) {
@@ -566,7 +566,7 @@
 
 @media (max-width: 768px) {
 	.hero__orb::before {
-		inset: 20%;
+		inset: 0%;
 		border-width: 1px;
 		box-shadow: 0 0 14px rgba(124, 77, 255, 0.22);
 	}
@@ -575,7 +575,7 @@
 .hero__orb::after {
 	content: "";
 	position: absolute;
-	inset: -3%;
+	inset: -15%;
 	border-radius: 50%;
 	border: 0.8px solid rgba(38, 198, 218, 0.3);
 	box-shadow: 0 0 30px rgba(38, 198, 218, 0.25);
@@ -591,7 +591,7 @@
 
 @media (max-width: 768px) {
 	.hero__orb::after {
-		inset: -18%;
+		inset: -48%;
 		border-width: 0.7px;
 		box-shadow: 0 0 12px rgba(38, 198, 218, 0.16);
 	}
@@ -879,7 +879,7 @@
 }
 
 .section.about {
-	padding: 40px 1.5rem;
+	padding: 20px 0.5rem;
 	max-width: 1320px;
 }
 
@@ -891,7 +891,7 @@
 
 @media (min-width: 1024px) {
 	.section.about {
-		padding: 80px 4vw 70px;
+		padding: 40px 4vw 70px;
 	}
 }
 
@@ -1402,9 +1402,9 @@ margin: 0 auto;
 	}
 
 	.hero {
-		gap: 40px;
-		padding: 50px 4vw 0px;
-		padding-top: 4rem;
+		gap: 10px;
+		padding: 30px 2vw 0px;
+		padding-top: 10rem;
 	}
 
 	.section {

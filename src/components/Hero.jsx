@@ -164,7 +164,6 @@ const Hero = ({ data }) => {
     chips,
     floatingTop,
     floatingBottom,
-    floatingOpportunity,
     socialLinks,
     scrollHint,
   } = data;
