@@ -83,29 +83,30 @@
 }
 
 .nav {
-
-  position: relative;
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   padding: 0.5rem 0.8rem;
-
   z-index: 100;
+  background: rgba(8, 8, 15, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 @media (min-width: 768px) {
   .nav {
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .nav {
-    padding: 1rem 3rem;
+    padding: 0.65rem 3rem;
   }
 }
 
@@ -415,8 +416,8 @@
 	.hero {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 60px;
-		padding: 90px 6vw 40px;
-		padding-top: 2rem;
+		padding: 100px 6vw 40px;
+		padding-top: 7.5rem;
 	}
 }
 
@@ -439,7 +440,7 @@
 }
 
 .hero-name {
-	display: inline-flex;
+	display: block;
 	gap: 0.02em;
 }
 
@@ -459,7 +460,7 @@
 }
 
 .hero__subtitle {
-	font-size: 0.95rem;
+	font-size: 0.88rem;
 	color: var(--muted);
 	max-width: 520px;
 	line-height: 1.5;
@@ -591,7 +592,7 @@
 
 @media (max-width: 768px) {
 	.hero__orb::after {
-		inset: -48%;
+		inset: -42%;
 		border-width: 0.7px;
 		box-shadow: 0 0 12px rgba(38, 198, 218, 0.16);
 	}
@@ -777,12 +778,12 @@
 
 .stats {
 	position: relative;
-	margin: 0 1.5rem;
-	margin-top: 6px;
+	margin: 1.2rem 0 0 0;
+	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
 	gap: 12px;
-	padding: 12px 6px;
+	padding: 12px 14px;
 	border-radius: 16px;
 	border: 1px solid var(--border);
 	background: rgba(12, 12, 20, 0.7);
@@ -801,8 +802,8 @@
 
 @media (min-width: 768px) {
 	.stats {
-		margin: 0 2rem;
-		margin-top: 10px;
+		margin: 1.5rem 0 0 0;
+		width: 100%;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 24px;
 		padding: 18px 24px;
@@ -812,8 +813,8 @@
 
 @media (min-width: 1024px) {
 	.stats {
-		margin: 0 45vw 0 2vw;
-		margin-top: 0;
+		margin: 2rem 0 0 0;
+		width: 100%;
 	}
 }
 
@@ -906,20 +907,22 @@
 
 .section__title {
 	font-family: var(--font-display);
-	font-size: clamp(1.6rem, 2.8vw, 3.2rem);
+	font-size: clamp(1.35rem, 2.2vw, 2.4rem);
 	margin: 2px 0;
 	line-height: 1.2;
 }
 
 @media (max-width: 768px) {
 	.section__title {
-		font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+		font-size: clamp(1.2rem, 2vw, 1.55rem);
 	}
 }
 
 .section__subtitle {
 	color: var(--muted);
 	max-width: 520px;
+	font-size: 0.88rem;
+	line-height: 1.5;
 }
 
 .section.projects {
@@ -970,6 +973,12 @@
 	margin-bottom: 12px;
 }
 
+.about__card p {
+	font-size: 0.88rem;
+	line-height: 1.55;
+	color: var(--muted);
+}
+
 .about__badges {
 	display: flex;
 	flex-wrap: wrap;
@@ -983,7 +992,7 @@
 	background: rgba(124, 77, 255, 0.15);
 	border: 1px solid rgba(124, 77, 255, 0.3);
 	color: var(--muted);
-	font-size: 0.85rem;
+	font-size: 0.78rem;
 }
 
 .about__visuals {
@@ -1103,7 +1112,7 @@
 
 .code-card__body {
 	margin: 0;
-	font-size: 0.75rem;
+	font-size: 0.7rem;
 	line-height: 1.45;
 	color: #d8d8f4;
 	white-space: pre-wrap;
@@ -1239,7 +1248,7 @@
 } */
 
 .project-card__top h3 {
-  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
 
   font-weight: 700;
 
@@ -1358,7 +1367,7 @@ margin: 0 auto;
   flex-wrap: wrap;
 }
 .project-card__description {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 
   line-height: 1.6;
 
@@ -1393,7 +1402,7 @@ margin: 0 auto;
 
 @media (max-width: 1200px) {
 	.nav {
-		padding: 1.3rem 3.5rem;
+		padding: 0.75rem 2.5rem;
 	}
 
 	.nav__links {
@@ -1405,7 +1414,7 @@ margin: 0 auto;
 	.hero {
 		gap: 10px;
 		padding: 30px 2vw 0px;
-		padding-top: 10rem;
+		padding-top: 7.5rem;
 	}
 
 	.section {
@@ -1780,13 +1789,13 @@ margin: 0 auto;
 
 .skills__panel-title {
 	font-family: var(--font-display);
-	font-size: 0.74rem;
+	font-size: 0.7rem;
 	line-height: 1.35;
 }
 
 .skills__panel-subtitle {
 	color: var(--muted);
-	font-size: 0.82rem;
+	font-size: 0.78rem;
 }
 
 .skills__panel-meta {
@@ -2225,7 +2234,7 @@ textarea:focus {
 
 @media (max-width: 980px) {
 	.nav {
-		padding: 1.1rem 3vw;
+		padding: 0.7rem 3vw;
 		flex-wrap: wrap;
 		gap: 12px;
 	}
@@ -2283,8 +2292,9 @@ textarea:focus {
 	}
 
 	.stats {
-		grid-template-columns: 1fr;
-		margin: 0 5vw;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		margin: 1.2rem 0 0 0;
+		width: 100%;
 		padding: 16px;
 		gap: 16px;
 	}
@@ -2362,7 +2372,7 @@ textarea:focus {
 
 @media (max-width: 720px) {
 	.nav {
-		padding: 1rem 1.4rem;
+		padding: 0.45rem 0.8rem;
 		align-items: center;
 		flex-wrap: nowrap;
 	}
@@ -2392,7 +2402,16 @@ textarea:focus {
 	}
 
 	.hero {
-		padding-top: 0.7rem;
+		padding-top: 5.5rem;
+	}
+
+	.hero__title {
+		font-size: clamp(1.7rem, 8vw, 2.2rem);
+		line-height: 1.1;
+	}
+
+	.hero__subtitle {
+		font-size: 0.82rem;
 	}
 
 	.hero__visual {
@@ -2418,8 +2437,42 @@ textarea:focus {
 	}
 
 	.hero__orb {
-		width: min(300px, 72vw);
-		top: 20px;
+		width: min(230px, 60vw);
+		left: 20px;
+		top: 30px;
+	}
+
+	.social-rail {
+		display: flex;
+		position: absolute;
+		left: 16px;
+		right: auto;
+		top: 50%;
+		transform: translateY(-50%);
+		flex-direction: column;
+		gap: 12px;
+		z-index: 10;
+	}
+
+	.social-icon {
+		width: 44px;
+		height: 44px;
+		border-radius: 12px;
+		box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+	}
+
+	.social-icon::before {
+		inset: -4px;
+		border-radius: 15px;
+	}
+
+	.social-icon::after {
+		display: none;
+	}
+
+	.social-icon__svg {
+		width: 18px;
+		height: 18px;
 	}
 
 	.hero__figure {
@@ -2444,16 +2497,20 @@ textarea:focus {
 	}
 
 	.section {
-		padding: 70px 5vw;
+		padding: 50px 7vw;
 	}
 
 	.project-card {
-		padding: 1.6rem;
-		border-radius: 24px;
+		padding: 1.3rem;
+		border-radius: 20px;
+	}
+
+	.project-card__top h3 {
+		font-size: 1.12rem;
 	}
 
 	.project-card__description {
-		font-size: 0.98rem;
+		font-size: 0.82rem;
 	}
 
 	.project-card__links {
@@ -2464,6 +2521,7 @@ textarea:focus {
 	.project-btn {
 		width: 100%;
 		justify-content: center;
+		font-size: 0.8rem;
 	}
 
 
@@ -2486,11 +2544,21 @@ textarea:focus {
 	}
 
 	.skills__feature {
-		padding: 20px;
+		padding: 16px;
+	}
+
+	.skills__panel {
+		padding: 12px;
 	}
 
 	.skills__feature-metrics {
-		grid-template-columns: 1fr;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		gap: 10px;
+	}
+
+	.skills__chip {
+		font-size: 0.64rem;
+		padding: 4px 8px;
 	}
 
 	.skills__panel-head {

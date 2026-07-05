@@ -2,6 +2,7 @@ import { useLayoutEffect, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import heroImage from "../assets/hero.png";
+import Stats from "./Stats";
 
 const splitText = (text, className = "") =>
   text.split("").map((char, index) => {
@@ -153,7 +154,7 @@ const getSocialMeta = (href) => {
   };
 };
 
-const Hero = ({ data }) => {
+const Hero = ({ data, stats }) => {
   const {
     greeting,
     firstName,
@@ -235,6 +236,7 @@ const Hero = ({ data }) => {
             );
           })}
         </div>
+        <Stats stats={stats} />
       </div>
 
       <div className="hero__visual reveal" style={{ "--delay": "0.2s" }}>

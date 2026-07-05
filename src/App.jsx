@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Stats from "./components/Stats";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
@@ -131,8 +130,7 @@ const App = () => {
       </div>
       <Navbar links={navLinks} cta={navCta} />
       <main>
-        <Hero data={hero} />
-        <Stats stats={stats} />
+        <Hero data={hero} stats={stats} />
         <About about={about} facts={facts} />
         <Skills content={skillsSection} skills={skills} />
         <Projects content={projectsSection} projects={projects} />
