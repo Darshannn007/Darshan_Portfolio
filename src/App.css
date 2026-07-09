@@ -578,7 +578,7 @@
 
 @media (max-width: 768px) {
 	.hero__orb::after {
-		inset: -42%;
+		inset: -53%;
 		border-width: 0.7px;
 		box-shadow: 0 0 12px rgba(38, 198, 218, 0.16);
 	}
@@ -596,7 +596,7 @@
 	.hero__figure {
 		width: 38%;
 		height: 58%;
-		border-radius: 96px 96px 32% 32%;
+		border-radius: 96px 96px 96px 96px;
 	}
 }
 
@@ -1669,6 +1669,11 @@ margin: 0 auto;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	background: rgba(12, 12, 20, 0.7);
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 8px;
 }
 
 .skills__metric::before {
@@ -1694,8 +1699,7 @@ margin: 0 auto;
 .skills__metric-count {
 	font-family: var(--font-display);
 	font-size: 1rem;
-	margin-top: 4px;
-	display: inline-flex;
+	display: block;
 }
 
 .skills__stack {
@@ -2424,8 +2428,8 @@ textarea:focus {
 
 	.hero__orb {
 		width: min(230px, 60vw);
-		left: 20px;
-		top: 30px;
+		left: 40px;
+		top: 40px;
 	}
 
 	.social-rail {
