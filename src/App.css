@@ -567,18 +567,18 @@
 .hero__orb::after {
 	content: "";
 	position: absolute;
-	inset: -65%;
+	inset: -70%;
 	border-radius: 50%;
 	border: 1px solid transparent;
 	box-shadow: 0 0 30px rgba(124, 77, 255, 0.1);
 	/* animation: pulse 6.5s ease-in-out infinite; */
-	-webkit-mask-image: radial-gradient(circle at 12% 40%, black 35%, transparent 68%);
-	mask-image: radial-gradient(circle at 12% 40%, black 35%, transparent 68%);
+	-webkit-mask-image: radial-gradient(circle at 15% 45%, black 50%, transparent 85%);
+	mask-image: radial-gradient(circle at 15% 45%, black 50%, transparent 85%);
 }
 
 @media (min-width: 768px) {
 	.hero__orb::after {
-		inset: -80;
+		inset: -70%;
 		border: 2.5px solid rgba(124, 77, 255, 0.45);
 		box-shadow: 
 			0 0 20px rgba(38, 198, 218, 0.7),
