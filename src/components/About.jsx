@@ -1,4 +1,4 @@
-const About = ({ about, facts }) => {
+const About = ({ about, facts, reviewsSection, reviews }) => {
   return (
     <section id="about" className="section about">
       <div className="about__content reveal" style={{ "--delay": "0.1s" }}>
@@ -10,15 +10,6 @@ const About = ({ about, facts }) => {
         </a>
       </div>
       <div className="about__panel reveal" style={{ "--delay": "0.2s" }}>
-        <div className="about__card">
-          <h3>{about.card.title}</h3>
-          <p>{about.card.description}</p>
-          <div className="about__badges">
-            {about.badges.map((badge) => (
-              <span key={badge}>{badge}</span>
-            ))}
-          </div>
-        </div>
         <div className="about__visuals">
           <div className="about__blob" />
           <div className="code-card">
@@ -65,11 +56,29 @@ const obsession = "Smooth Interactions";`}</code>
             </span>
           </div>
         </div>
-        <div className="facts">
+        {/* <div className="facts">
           {facts.map((fact) => (
             <div key={fact.title} className="fact-card">
               <h4>{fact.title}</h4>
               <p>{fact.detail}</p>
+            </div>
+          ))}
+        </div> */}
+      </div>
+      <div className="about__reviews reveal" style={{ "--delay": "0.3s" }}>
+        <h3 className="reviews__title">{reviewsSection.title}</h3>
+        <p className="reviews__subtitle">{reviewsSection.subtitle}</p>
+        <div className="reviews__grid">
+          {reviews.map((review, index) => (
+            <div key={index} className="review-card">
+              <p className="review-card__quote">"{review.quote}"</p>
+              <div className="review-card__author">
+                <div className="review-card__avatar" />
+                <div className="review-card__info">
+                  <span className="review-card__name">{review.name}</span>
+                  <span className="review-card__role">{review.role}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>

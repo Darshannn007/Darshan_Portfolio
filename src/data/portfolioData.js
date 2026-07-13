@@ -39,7 +39,7 @@ export const about = {
   eyebrow: "About Me",
   title: "Full Stack Java Developer Crafting immersive web experiences with REACT & Spring-Boot",
   subtitle:
-    "My focus is blending motion design with high-performance engineering to ship products that feel futuristic yet intuitive.",
+    "Most of my time goes into making sure the UI feels good to use smooth transitions, no janky loading states but I don't let that distract from the backend. Every animation you see is running on a Spring Boot API I've actually load-tested.",
   cta: { label: "More About Me", href: "#contact" },
   card: {
     title: "Design + Engineering",
@@ -214,5 +214,28 @@ export const contactSection = {
     { label: "Location", value: "India" },
   ],
 };
+
+export const reviewsSection = {
+  title: "What people say",
+  subtitle: "// from clients & teammates",
+};
+
+export const reviews = [
+  {
+    quote: "Darshan understood the brief in one call and the dashboard he built handles way more data than we expected without slowing down.",
+    name: "Adarsh Singh",
+    role: "Doctor, Hospital managenent System",
+  },
+  {
+    quote: "He's the rare dev who cares as much about how the UI feels as whether the API is fast. Rare combination on a small team.",
+    name: "Naman Sharma",
+    role: "CO-Engineer",
+  },
+  {
+    quote: "Communicated clearly through the whole project and delivered ahead of the deadline. Would hire again.",
+    name: "Shantanu patil",
+    role: "Freelance project",
+  },
+];
 
 export const footerText = "2026 © Darshan Desale. All rights reserved.";

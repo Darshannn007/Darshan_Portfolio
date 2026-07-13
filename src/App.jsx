@@ -23,6 +23,8 @@ import {
   experienceSection,
   timeline,
   contactSection,
+  reviewsSection,
+  reviews,
   footerText,
 } from "./data/portfolioData";
 
@@ -60,78 +62,20 @@ const App = () => {
       items.forEach((item) => observer.observe(item));
     }
 
-    const root = document.querySelector(".app");
-    let rafId = null;
-    let nextX = window.innerWidth / 2;
-    let nextY = window.innerHeight / 2;
-
-    const setSpotlight = (x, y) => {
-      if (!root) return;
-      root.style.setProperty("--cursor-x", `${x}px`);
-      root.style.setProperty("--cursor-y", `${y}px`);
-    };
-
-    const scheduleSpotlight = () => {
-      if (rafId) return;
-      rafId = window.requestAnimationFrame(() => {
-        setSpotlight(nextX, nextY);
-        rafId = null;
-      });
-    };
-
-    const handleMove = (event) => {
-      nextX = event.clientX;
-      nextY = event.clientY;
-      if (root) {
-        root.style.setProperty("--cursor-opacity", "1");
-      }
-      scheduleSpotlight();
-    };
-
-    const handleLeave = () => {
-      if (root) {
-        root.style.setProperty("--cursor-opacity", "0");
-      }
-    };
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
-    const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
-    const enableSpotlight = isFinePointer && !isSmallScreen && !prefersReducedMotion;
-
-    if (enableSpotlight) {
-      setSpotlight(nextX, nextY);
-      window.addEventListener("mousemove", handleMove, { passive: true });
-      window.addEventListener("mouseleave", handleLeave);
-    } else if (root) {
-      root.style.setProperty("--cursor-opacity", "0");
-    }
-
     return () => {
       if (observer) {
         observer.disconnect();
       }
-      if (rafId) {
-        window.cancelAnimationFrame(rafId);
-      }
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("mouseleave", handleLeave);
     };
   }, []);
 
   return (
     <div className="app">
       <div className="noise" />
-      <div className="cursor-spotlight" aria-hidden="true">
-        <div className="cursor-spotlight__blob cursor-spotlight__blob--outer" />
-        <div className="cursor-spotlight__blob cursor-spotlight__blob--inner" />
-      </div>
       <Navbar links={navLinks} cta={navCta} />
       <main>
         <Hero data={hero} stats={stats} />
-        <About about={about} facts={facts} />
+        <About about={about} facts={facts} reviewsSection={reviewsSection} reviews={reviews} />
         <Skills content={skillsSection} skills={skills} />
         <Projects content={projectsSection} projects={projects} />
         <Experience content={experienceSection} timeline={timeline} />
