@@ -7,7 +7,7 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const navCta = { label: "Let's Talk", href: "#contact" };
+export const navCta = { label: "Get in touch", href: "#contact" };
 
 export const hero = {
   greeting: "Hello, I'm",
