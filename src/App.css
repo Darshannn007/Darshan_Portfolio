@@ -788,9 +788,13 @@
 	gap: 12px;
 	padding: 12px 14px;
 	border-radius: 16px;
-	border: 1px solid var(--border);
-	background: blur;
-	box-shadow: var(--shadow);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(12, 12, 22, 0.45);
+	backdrop-filter: blur(12px) saturate(140%);
+	-webkit-backdrop-filter: blur(12px) saturate(140%);
+	box-shadow: 
+		0 24px 60px rgba(0, 0, 0, 0.45),
+		inset 0 1px 0 rgba(255, 255, 255, 0.1);
 	overflow: hidden;
 }
 
@@ -1001,32 +1005,48 @@
 .about__visuals {
 	position: relative;
 	margin-top: 12px;
-	padding: 12px;
+	padding: 16px;
 	display: grid;
-	gap: 10px;
+	gap: 12px;
 	grid-template-columns: 1fr;
 	grid-auto-rows: min-content;
 	width: 100%;
 	max-width: none;
 	margin-left: 0;
-	border-radius: 16px;
-	border: 1px solid rgba(124, 77, 255, 0.2);
-	background: rgba(10, 10, 18, 0.72);
+	border-radius: 20px;
+	border: 1px solid rgba(124, 77, 255, 0.35);
+	background: rgba(12, 12, 22, 0.65);
+	box-shadow: var(--shadow);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
 	overflow: hidden;
+}
+
+.about__visuals::after {
+	content: "";
+	position: absolute;
+	inset: -1px;
+	border-radius: 20px;
+	background: linear-gradient(135deg, rgba(124, 77, 255, 0.25), rgba(38, 198, 218, 0.15));
+	opacity: 0.3;
+	filter: blur(12px);
+	z-index: -1;
 }
 
 @media (min-width: 1024px) {
 	.about__visuals {
 		margin-top: 18px;
-		padding: 18px;
-		gap: 14px;
+		padding: 22px;
+		gap: 16px;
 		grid-template-columns: minmax(0, 1fr) 170px;
+		grid-template-rows: auto 1fr;
 	}
 }
 
 .about__visuals .code-card,
 .about__visuals .terminal-card {
 	grid-column: 1;
+	width: 100%;
 }
 
 .about__visuals .stack-orbit {
@@ -1066,34 +1086,90 @@
 
 .code-card {
 	position: relative;
-	padding: 14px 16px;
-	border-radius: 16px;
-	background: rgba(12, 12, 22, 0.85);
-	border: 1px solid rgba(124, 77, 255, 0.35);
+	padding: 0;
+	border-radius: 0;
+	background: transparent;
+	border: none;
 	font-family: "Space Grotesk", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 .code-card::after {
-	content: "";
-	position: absolute;
-	inset: -1px;
-	border-radius: 16px;
-	background: linear-gradient(135deg, rgba(124, 77, 255, 0.45), rgba(38, 198, 218, 0.25));
-	opacity: 0.4;
-	filter: blur(12px);
-	z-index: -1;
+	display: none;
 }
 
 .code-card__header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	font-size: 0.7rem;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	color: var(--muted);
-	margin-bottom: 10px;
+	gap: 12px;
+	width: 100%;
+	margin-bottom: 12px;
 }
+
+.code-card__header-left {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-shrink: 0;
+}
+
+.code-card__header-title {
+	font-size: 0.62rem;
+	color: var(--muted);
+	letter-spacing: 0.3px;
+	text-transform: uppercase;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.code-card__header-response {
+	color: rgba(255, 255, 255, 0.45);
+	font-size: 0.6rem;
+	font-weight: bold;
+	letter-spacing: 0.3px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.code-card__header-status {
+	color: #26c6da;
+	font-size: 0.6rem;
+	font-weight: bold;
+	letter-spacing: 0.3px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+	.code-card__header {
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 6px 12px;
+		width: 100%;
+	}
+	.code-card__header-left {
+		grid-column: 1;
+	}
+	.code-card__header-status {
+		grid-column: 2;
+		justify-self: end;
+	}
+	.code-card__header-response {
+		grid-column: 1 / span 2;
+		font-size: 0.55rem;
+		color: rgba(255, 255, 255, 0.4);
+		margin-top: 2px;
+	}
+	.code-card__body {
+		font-size: 0.6rem !important;
+		white-space: pre-wrap !important;
+		word-break: break-all !important;
+	}
+}
+
+
 
 .code-card__status {
 	position: relative;
@@ -1122,36 +1198,11 @@
 }
 
 .terminal-card {
-	padding: 14px 16px;
-	border-radius: 16px;
-	border: 1px solid var(--border);
-	background: rgba(8, 8, 12, 0.85);
+	padding: 0;
+	border-radius: 0;
+	border: none;
+	background: transparent;
 	font-family: "Space Grotesk", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-}
-
-.terminal-card__top {
-	display: flex;
-	gap: 6px;
-	margin-bottom: 12px;
-}
-
-.terminal-card__dot {
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.35);
-}
-
-.terminal-card__dot:nth-child(1) {
-	background: #ff6bcb;
-}
-
-.terminal-card__dot:nth-child(2) {
-	background: #f89f1b;
-}
-
-.terminal-card__dot:nth-child(3) {
-	background: #26c6da;
 }
 
 .terminal__line {
@@ -1213,6 +1264,40 @@
 	border: 1px solid rgba(124, 77, 255, 0.35);
 	color: var(--muted);
 	font-size: 0.66rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.stack-orbit__item:hover {
+	border-color: var(--accent-2);
+	color: #fff;
+	box-shadow: 0 0 12px rgba(38, 198, 218, 0.4);
+}
+
+.stack-orbit__item::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: 125%;
+	left: 50%;
+	transform: translateX(-50%) scale(0.9);
+	background: rgba(8, 8, 14, 0.96);
+	border: 1px solid rgba(124, 77, 255, 0.5);
+	color: #fff;
+	padding: 6px 10px;
+	border-radius: 8px;
+	font-size: 0.58rem;
+	font-family: sans-serif;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+	z-index: 9999;
+}
+
+.stack-orbit__item:hover::after {
+	opacity: 1;
+	transform: translateX(-50%) scale(1);
 }
 
 .facts {
@@ -1875,7 +1960,7 @@ margin: 0 auto;
 	padding: 12px 14px;
 	border-radius: 12px;
 	border: 1px solid var(--border);
-	background: rgba(12, 12, 20, 0.8);
+	background: rgba(12, 12, 20, 0.85);
 }
 
 @media (min-width: 768px) {
@@ -1888,7 +1973,7 @@ margin: 0 auto;
 .timeline__item::before {
 	content: "";
 	position: absolute;
-	left: -24px;
+	left: -22px;
 	top: 18px;
 	width: 10px;
 	height: 10px;
@@ -1899,7 +1984,7 @@ margin: 0 auto;
 
 @media (min-width: 768px) {
 	.timeline__item::before {
-		left: -34px;
+		left: -31px;
 		top: 26px;
 		width: 12px;
 		height: 12px;
@@ -2686,3 +2771,5 @@ textarea:focus {
 		padding: 20px;
 	}
 }
+
+
