@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_73rq5xl";
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_fqa3cko";
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "-08qB3KXILOSJvwRL";
 
 const Contact = ({ content }) => {
   const formRef = useRef(null);
