@@ -1,5 +1,3 @@
-
-import { useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -30,51 +28,14 @@ import {
 } from "./data/portfolioData";
 
 const App = () => {
-  useEffect(() => {
-    const items = document.querySelectorAll(".reveal");
-    let observer;
-
-    if (!("IntersectionObserver" in window)) {
-      items.forEach((item) => item.classList.add("is-visible"));
-    } else {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const target = entry.target;
-
-            if (entry.isIntersecting) {
-              target.classList.add("is-visible");
-              if (target.dataset.revealSeen === "true") {
-                target.classList.add("reveal--repeat");
-              } else {
-                target.dataset.revealSeen = "true";
-              }
-            } else {
-              target.classList.remove("is-visible");
-              if (target.dataset.revealSeen === "true") {
-                target.classList.add("reveal--repeat");
-              }
-            }
-          });
-        },
-        { threshold: 0.05 }
-      );
-
-      items.forEach((item) => observer.observe(item));
-    }
-
-    return () => {
-      if (observer) {
-        observer.disconnect();
-      }
-    };
-  }, []);
-
   return (
-    <div className="app">
-      <div className="noise" />
+    <div className="sketch-app">
+      {/* Subtle Botanical / Paper Texture Background Grain */}
+      <div className="sketch-grain-overlay" aria-hidden="true" />
+      
       <Navbar links={navLinks} cta={navCta} />
-      <main>
+
+      <main className="sketch-main">
         <Hero data={hero} stats={stats} />
         <About about={about} facts={facts} reviewsSection={reviewsSection} reviews={reviews} />
         <Skills content={skillsSection} skills={skills} />
@@ -82,6 +43,7 @@ const App = () => {
         <Experience content={experienceSection} timeline={timeline} />
         <Contact content={contactSection} />
       </main>
+
       <Footer
         data={footerData}
         links={navLinks}

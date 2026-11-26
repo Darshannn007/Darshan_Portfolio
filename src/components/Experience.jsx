@@ -1,41 +1,42 @@
 const Experience = ({ content, timeline }) => {
   return (
-    <section id="experience" className="section timeline">
-      {/* Header — staggered text cascade from left */}
-      <div className="section__header">
-        <div>
-          <p className="eyebrow reveal reveal--from-left" style={{ "--delay": "0.05s" }}>{content.eyebrow}</p>
-          <h2 className="section__title reveal reveal--from-left" style={{ "--delay": "0.15s" }}>{content.title}</h2>
-          {content.subtitle && <p className="section__subtitle reveal reveal--from-left" style={{ "--delay": "0.25s" }}>{content.subtitle}</p>}
+    <section id="experience" className="sketch-section sketch-timeline">
+      <div className="sketch-container">
+        {/* Section Heading */}
+        <div className="sketch-heading">
+          <h2 className="sketch-heading__title">{content.title || "Certification Highlights"}</h2>
+          {content.subtitle && <p className="sketch-heading__subtitle">{content.subtitle}</p>}
         </div>
-        {content.highlight && (
-          <div className="experience__badge reveal reveal--blur-up" style={{ "--delay": "0.3s" }}>
-            {content.highlight}
-          </div>
-        )}
-      </div>
 
-      {/* Timeline items — staggered drop-in from left */}
-      <div className="timeline__list">
-        {timeline.map((item, index) => (
-          <div
-            key={`${item.role}-${item.company}`}
-            className="timeline__item reveal reveal--timeline"
-            style={{ "--delay": `${0.1 + index * 0.15}s` }}
-          >
-            <span className="timeline__year">{item.year}</span>
-            <div className="timeline__content">
-              <h3>{item.role}</h3>
-              <h4>{item.company}</h4>
-              <p>{item.details}</p>
-              {item.link && (
-                <a className="timeline__link" href={item.link} target="_blank" rel="noreferrer">
-                  {item.linkLabel || "View Certificate"}
-                </a>
-              )}
+        {/* Ledger Timeline List */}
+        <div className="sketch-ledger">
+          {timeline.map((item, index) => (
+            <div key={`${item.role}-${item.company}`} className="sketch-ledger__row">
+              <div className="sketch-ledger__date-col">
+                <span className="sketch-ledger__badge">Record 0{index + 1}</span>
+                <span className="sketch-ledger__date">{item.year}</span>
+              </div>
+
+              <div className="sketch-ledger__content-col">
+                <h3 className="sketch-ledger__role">{item.role}</h3>
+                <h4 className="sketch-ledger__company">&mdash; {item.company}</h4>
+                <p className="sketch-ledger__details">{item.details}</p>
+
+                {item.link && (
+                  <a
+                    className="sketch-ledger__link"
+                    href={item.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span>{item.linkLabel || "Examine Verified Credential (PDF)"}</span>
+                    <span className="sketch-ledger__link-arr">&rarr;</span>
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

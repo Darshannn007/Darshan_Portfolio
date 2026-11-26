@@ -1,13 +1,13 @@
 const Stats = ({ stats }) => {
   return (
-    <section className="stats reveal" style={{ "--delay": "0.1s" }}>
-      {stats.map((stat) => (
-        <div key={stat.label} className="stat-card">
-          <h3>{stat.value}</h3>
-          <p>{stat.label}</p>
+    <div className="sketch-stats">
+      {stats.map((stat, idx) => (
+        <div key={stat.label || idx} className="sketch-stat">
+          <span className="sketch-stat__val">{stat.value}</span>
+          <span className="sketch-stat__lbl">{stat.label}</span>
         </div>
       ))}
-    </section>
+    </div>
   );
 };
 
